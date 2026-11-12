@@ -12,3 +12,10 @@ def plot_outcome(data):
    fig = px.pie(outcome, names="survival", values="count", hole=0.5, color="survival",
                  color_discrete_map=COLORS, title="Died vs survived")
    return fig 
+
+def plot_heatmap(data):
+    corr = data[["survived", "pclass", "age", "sibsp", "parch", "fare"]].corr(numeric_only=True)
+    fig = px.imshow(corr, text_auto=".2f", color_continuous_scale="RdBu_r", 
+                    aspect="auto",title="Feature Correlation Heatmap")
+    fig.update_layout(coloraxis_colorbar_title="Correlation")
+    return fig
