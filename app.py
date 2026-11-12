@@ -4,7 +4,7 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 
-df = pd.read_csv(r"data\titanic.csv")
+df = pd.read_csv("data/titanic.csv")
 df.columns = df.columns.str.lower()
 df["class"] = df["pclass"].map({1: "First", 2: "Second", 3: "Third"})
 df["survival"] = df["survived"].map({0: "Died", 1: "Survived"})
@@ -20,7 +20,7 @@ COLORS = {"Died": "#D95D4A", "Survived": "#0F766E"}
 
 st.title("Titanic Survival Prediction App")
 st.caption("Data from https://www.kaggle.com/c/titanic/data")
-st.image(r"utils\titanic.png")
+st.image("utils/titanic.png")
 
 show_data = st.checkbox("Show sample data")
 if show_data:
